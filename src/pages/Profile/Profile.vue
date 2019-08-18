@@ -1,17 +1,11 @@
 <template>
   <div>
-    <router-view></router-view>
-    <FooterGuide/>
-    
+     个人
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import FooterGuide from './components/FooterGuide/FooterGuide.vue'
   export default {
-    components:{
-      FooterGuide
-    }
   }
 </script>
 
@@ -19,4 +13,3 @@
 
  
 </style>
-
