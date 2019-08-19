@@ -24,7 +24,11 @@ export default [{
 },
 {
   path:'/profile',
-  compoment:Profile
+  component:Profile
+},
+{
+  path:'/',
+  redirect:'/msite'
 }
 
 ]

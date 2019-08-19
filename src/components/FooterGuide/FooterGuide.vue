@@ -41,23 +41,23 @@
 #footer
   display flex
   width 100%
-  height 49px
+  height 98px
   position fixed
   left 0
   bottom 0
   background white
   .footer_item
     display flex
-    width 20%
-    height 35px
+    width 40%
+    height 70px
     flex-direction column
     align-items center
-    margin 7px
+    margin 14px
   .iconfont
-    font-size 20px
+    font-size 40px
   span 
-    font-size 12px
-    margin 3px
+    font-size 24px
+    margin 6px
   .footer_item_i
     color red
   .icon-weibiaoti-
