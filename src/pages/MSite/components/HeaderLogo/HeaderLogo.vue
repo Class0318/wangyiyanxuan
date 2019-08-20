@@ -8,7 +8,7 @@
         <span class="placeholder">搜索商品，共21615款好物</span>
       </div>
       <div class="login_denglu">
-          <div class="login">登录</div>
+          <div class="login" @click="$router.push('/profile')">登录</div>
       </div>
     </div>
   </div>

@@ -1,26 +1,24 @@
 <template>
   <div>
      <div id="search_header">
-         <div class="search_house">
+         <div class="search_house" @click="$router.push('/msite')">
          <i class="iconfont icon-weibiaoti-"></i>
         </div>
      <div class="search_middle">
         <span class="search_find">发现</span>
         <span class="search_home">甄选家</span>
       </div>
-      <div class="search_footer">
+      <div class="search_footer" @click="$router.push('/goods')">
         <i class="iconfont icon-icon_search"></i>
         <i class="iconfont icon-gouwuche"></i>
       </div>
     </div>
     <div id="search_middle">
-        <div class="search_summer">
+        <div class="wrapper">
             <ul class="search_list">
-                <li class="search_item red">盛夏特别版</li>
-                <li class="search_item">推荐</li>
-                <li class="search_item">好货内部价</li>
-                <li class="search_item">回购榜</li>
-                <li class="search_item">晒单</li>
+                <li class="search_item" :class="{on:isIndex === index}" @click="navclick(index)"
+                 v-for="(item,index) in labels" :key="index" >{{item}}</li>
+               
             </ul>
         </div>
     </div>
@@ -44,7 +42,25 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll'
   export default {
+    data(){
+      return{
+        isIndex:'0',
+        labels:['推荐','好货内部价','回购榜','晒单','盛夏','推荐','好货内部价','回购榜','晒单']
+      }
+    },
+    mounted(){
+        let scroll = new BScroll('.wrapper',{
+          scrollX: true,
+          click: true
+      })
+    },
+    methods:{
+      navclick(index){
+        this.isIndex = index 
+      }
+    }
   }
 </script>
 
@@ -81,21 +97,26 @@
     .icon-icon_search
       padding-right 16px
 #search_middle
-  .search_summer
+  .wrapper
     margin-top value
-    width 100%
     height 72px
+    overflow hidden
     .search_list
-      display flex
+      // display flex
+      display inline-block
       align-items center
-      width 100%
-      height 18px
+      // height 18px
+      // width 1000px
+      white-space nowrap
       margin-top 20px
       .search_item
+        display inline-block
         border 2px solid white
         padding: 16px 24px;
         font-size 28px
         color #7F7F7F
+        &.on
+          color red
       .red
         color #B4282D
         border-bottom 2px solid red

@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "better-scroll": "^1.15.2",
     "core-js": "^2.6.9",
     "lib-flexible": "^0.3.2",
+    "mock.js": "^0.2.0",
     "postcss-px2rem": "^0.3.0",
     "px2rem-loader": "^0.1.9",
     "stylus-loader": "^3.0.2",

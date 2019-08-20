@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="shopping">
-        <span class="shopping_car">购物车</span>
+        <span class="shopping_car"  @click="$router.push('/msite')">购物车</span>
         <span class="shopping_money">领券</span>
     </div>
     <div class="shopping_list">
