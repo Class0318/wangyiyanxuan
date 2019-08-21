@@ -43,7 +43,7 @@
   import Newsgoods from './components/Newsgoods/Newgoods'
   import Welcome from './components/Welcome/Welcome'
   import HotSale from './components/HotSale/HotSale'
-
+import {mapState} from 'vuex'
   
   export default {
     components:{
@@ -60,9 +60,10 @@
       Welcome,
       HotSale
     },
-    mounted(){
-       var mySwiper = new Swiper ('.swiper-container', {
-      loop: true, // 循环模式选项
+ 
+    async mounted() {
+      var mySwiper = new Swiper ('.swiper-container', {
+        loop: true, // 循环模式选项
 
       // 如果需要分页器
       pagination: {
@@ -71,8 +72,12 @@
 
      })
 
-        
-    }
+      // await this.$store.dispatch('getHome')//触发actions通知mutstion修改数据
+      // console.log(this.homedata)
+    },
+    computed:{//读取属性，放在computed
+      ...mapState(['homedata'])
+  }
   }
 </script>
 

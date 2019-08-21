@@ -9,31 +9,12 @@
     </div>
   </div>
   <div id="limitedgoods">
-    <ul class="limitedlist">
-      <li class="limiteditem">
-        <img src="https://yanxuan-item.nosdn.127.net/16f26c3a017781a2366518f843ad8702.png?imageView&thumbnail=216x216&quality=75" alt="">
-        <span>￥256</span>
+    <ul class="limitedlist" v-if="homedata.flashSaleModule">
+      <li class="limiteditem" v-for="(item,index) in homedata.flashSaleModule.itemList" :key="index">
+        <img :src="item.picUrl" alt="">
+        <span>{{item.activityPrice}}</span>
       </li>
-      <li class="limiteditem">
-        <img src="https://yanxuan-item.nosdn.127.net/19dd80b9fe9b430817562665ade23c54.png?imageView&thumbnail=216x216&quality=75" alt="">
-        <span>￥53</span>
-      </li>
-      <li class="limiteditem">
-        <img src="https://yanxuan-item.nosdn.127.net/8c96757210b51606c85604813f749bd0.png?imageView&thumbnail=216x216&quality=75" alt="">
-        <span>￥26</span>
-      </li>
-      <li class="limiteditem">
-        <img src="https://yanxuan-item.nosdn.127.net/2f800432797432dfdfdb135f98735cce.png?imageView&thumbnail=216x216&quality=75" alt="">
-        <span>￥79</span>
-      </li>
-      <li class="limiteditem">
-        <img src="https://yanxuan-item.nosdn.127.net/8427b14107deadbc140e95367ae38d5e.png?imageView&thumbnail=216x216&quality=75" alt="">
-        <span>￥156</span>
-      </li>
-      <li class="limiteditem">
-        <img src="https://yanxuan-item.nosdn.127.net/d0aba28ac46db2434da3fbd8330d8e00.png?imageView&thumbnail=216x216&quality=75" alt="">
-        <span>￥56</span>
-      </li>
+
     </ul>
   </div>
   <div class="bian"></div>
@@ -41,7 +22,17 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {mapState} from 'vuex'
   export default {
+    async mounted(){
+      await this.$store.dispatch('getHome')
+    },
+    computed:{
+      // ...mapState(['homedata'])
+      ...mapState({
+        homedata:state => state.msite.homedata
+      })
+    }
   }
 </script>
 
@@ -69,6 +60,7 @@
   width 100%
   height 600px
   .limitedlist
+    overflow hidden
     display flex
     flex-wrap wrap
     .limiteditem
