@@ -17,7 +17,7 @@
     "mockjs": "^1.0.1-beta3",
     "postcss-px2rem": "^0.3.0",
     "px2rem-loader": "^0.1.9",
-    "qs": "^6.8.0",
+    "qs": "^6.8.3",
     "stylus-loader": "^3.0.2",
     "swiper": "^4.5.0",
     "vue": "^2.6.10",
